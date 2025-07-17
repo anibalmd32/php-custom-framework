@@ -1,0 +1,38 @@
+{
+    "name": "anibal/orch_management_system",
+    "description": "Sistema para la administración de la orquesta Gustavo Dudamel",
+    "type": "project",
+    "require-dev": {
+        "pestphp/pest": "3.8",
+        "friendsofphp/php-cs-fixer": "3.84",
+        "phpstan/phpstan": "2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anibal Mendoza",
+            "email": "anibalmd32@gmail.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+     "scripts": {
+        "format": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes",
+        "analyze": "phpstan analyze src --level=7",
+        "test:init": "./vendor/bin/pest --init",
+        "test:run": "./vendor/bin/pest"
+    }
+}
