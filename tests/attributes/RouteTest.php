@@ -64,6 +64,6 @@ describe('Route Attribute', function () {
 
         expect($attributes)->not()->toBeNull();
         expect($attributes?->getArguments())->toBeArray();
-        expect($attributes?->getArguments()[0])->toBe(Attribute::TARGET_METHOD | Attribute::IS_REPEATABLE);
+        expect($attributes?->getArguments()[0])->toBe(Attribute::TARGET_METHOD);
     });
 });
