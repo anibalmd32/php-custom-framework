@@ -4,6 +4,8 @@ namespace Tests\attributes;
 
 use App\attributes\Route;
 use App\enums\HTTP_METHODS;
+use Attribute;
+use ReflectionClass;
 
 describe('Route Attribute', function () {
     it('should create a route with GET method and path', function () {
@@ -54,5 +56,14 @@ describe('Route Attribute', function () {
 
         expect($route->method)->toBe(HTTP_METHODS::PATCH);
         expect($route->path)->toBe('/test');
+    });
+
+    it('should has the correct attributes target', function () {
+        $reflectionClass = new ReflectionClass(Route::class);
+        $attributes = $reflectionClass->getAttributes(Attribute::class)[0] ?? null;
+
+        expect($attributes)->not()->toBeNull();
+        expect($attributes?->getArguments())->toBeArray();
+        expect($attributes?->getArguments()[0])->toBe(Attribute::TARGET_METHOD | Attribute::IS_REPEATABLE);
     });
 });
