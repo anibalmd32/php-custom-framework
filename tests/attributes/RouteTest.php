@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Tests\attributes;
 
@@ -60,7 +60,7 @@ describe('Route Attribute', function () {
 
     it('should has the correct attributes target', function () {
         $reflectionClass = new ReflectionClass(Route::class);
-        $attributes = $reflectionClass->getAttributes(Attribute::class)[0] ?? null;
+        $attributes      = $reflectionClass->getAttributes(Attribute::class)[0] ?? null;
 
         expect($attributes)->not()->toBeNull();
         expect($attributes?->getArguments())->toBeArray();
