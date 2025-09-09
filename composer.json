@@ -1,11 +1,13 @@
 {
-    "name": "anibal/orch_management_system",
-    "description": "Sistema para la administración de la orquesta Gustavo Dudamel",
+    "name": "anibal/php-custom-framework",
+    "description": "A custom PHP framework",
     "type": "project",
+    "version": "0.1.0",
     "require-dev": {
         "pestphp/pest": "3.8",
         "friendsofphp/php-cs-fixer": "3.84",
-        "phpstan/phpstan": "2.1"
+        "phpstan/phpstan": "2.1",
+        "php-mock/php-mock": "2.6"
     },
     "autoload": {
         "psr-4": {
@@ -23,7 +25,6 @@
             "email": "anibalmd32@gmail.com"
         }
     ],
-    "require": {},
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
