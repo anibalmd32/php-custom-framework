@@ -81,12 +81,12 @@ class Request
         $uri = $_SERVER['REQUEST_URI'] ?? '';
         $uri = explode('?', $uri, 2)[0];
 
-        $uriParts = array_values(array_filter(explode('/', $uri), fn($v) => $v !== ''));
-        $routeParts = array_values(array_filter(explode('/', $definedRoute), fn($v) => $v !== ''));
+        $uriParts   = array_values(array_filter(explode('/', $uri), fn ($v) => $v !== ''));
+        $routeParts = array_values(array_filter(explode('/', $definedRoute), fn ($v) => $v !== ''));
 
         foreach ($routeParts as $idx => $routePart) {
             if (str_starts_with($routePart, ':') && isset($uriParts[$idx])) {
-                $paramName = ltrim($routePart, ':');
+                $paramName                = ltrim($routePart, ':');
                 $this->params[$paramName] = $uriParts[$idx];
             }
         }
@@ -98,7 +98,7 @@ class Request
      */
     private function getQueries()
     {
-        $uri = $_SERVER['REQUEST_URI'] ?? '';
+        $uri   = $_SERVER['REQUEST_URI'] ?? '';
         $parts = explode('?', $uri, 2);
 
         if (count($parts) < 2 || empty($parts[1])) {
@@ -107,12 +107,12 @@ class Request
         }
 
         $queryFullStr = $parts[1];
-        $queryList = explode('&', $queryFullStr);
+        $queryList    = explode('&', $queryFullStr);
 
         foreach ($queryList as $queryItem) {
             if (strpos($queryItem, '=') !== false) {
                 list($queryName, $queryValue) = explode('=', $queryItem, 2);
-                $this->queries[$queryName] = $queryValue;
+                $this->queries[$queryName]    = $queryValue;
             }
         }
     }

@@ -19,7 +19,7 @@ describe('Request Lib', function () {
         $libNamespace = (new \ReflectionClass(Request::class))->getNamespaceName();
 
         $mock = new MockBuilder();
-        
+
         $mock->setNamespace($libNamespace)
             ->setName('file_get_contents')
             ->setFunction(
@@ -30,7 +30,7 @@ describe('Request Lib', function () {
                     return \file_get_contents($arg);
                 }
             );
-        
+
         $fileGetContentsMock = $mock->build();
         $fileGetContentsMock->enable();
 
@@ -44,12 +44,12 @@ describe('Request Lib', function () {
     it('should populate the files property from $_FILES', function () {
         $_FILES = [
             'my_file' => [
-                'name' => 'test.txt',
-                'type' => 'text/plain',
+                'name'     => 'test.txt',
+                'type'     => 'text/plain',
                 'tmp_name' => '/tmp/phpYzdqkD',
-                'error' => 0,
-                'size' => 123
-            ]
+                'error'    => 0,
+                'size'     => 123,
+            ],
         ];
 
         $request = new Request('/test');
@@ -67,7 +67,7 @@ describe('Request Lib', function () {
 
         expect($request->params)->toEqual([
             'userId'     => '42',
-            'bookId' => '7'
+            'bookId'     => '7',
         ]);
     })->group('unit');
 
@@ -80,7 +80,7 @@ describe('Request Lib', function () {
 
         expect($request->queries)->toEqual([
             'query' => 'phpunit',
-            'sort'  => 'asc'
+            'sort'  => 'asc',
         ]);
     })->group('unit');
 });

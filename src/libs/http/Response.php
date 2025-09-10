@@ -20,7 +20,7 @@ class Response
      */
     public function setHeaders(array $headers): self
     {
-        foreach ($headers as $header => $value) {            
+        foreach ($headers as $header => $value) {
             header($header . ': ' . $value);
         }
         return $this;
