@@ -25,5 +25,6 @@ return (new PhpCsFixer\Config())
             ],
         ],
         'trailing_comma_in_multiline' => true,
-        'single_quote' => true,
-    ])->setFinder($finder);
+    ])
+    ->setRiskyAllowed(true)
+    ->setFinder($finder);

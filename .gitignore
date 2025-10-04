@@ -2,3 +2,5 @@
 .php-cs-fixer.cache
 
 .vscode/
+
+.phpactor.json

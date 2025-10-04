@@ -21,7 +21,7 @@ class Response
     public function setHeaders(array $headers): self
     {
         foreach ($headers as $header => $value) {
-            header($header . ': ' . $value);
+            header("$header: $value");
         }
         return $this;
     }
@@ -86,7 +86,7 @@ class Response
      */
     public function redirect(string $url): self
     {
-        header('Location: ' . $url);
+        header("Location: $url");
 
         return $this;
     }

@@ -44,7 +44,7 @@ class Request
      * Get the body of the request
      * @return void
      */
-    private function getBody()
+    private function getBody(): void
     {
         try {
             $rawBody = file_get_contents('php://input');
@@ -66,7 +66,7 @@ class Request
      * Get the files uploaded with the request
      * @return void
      */
-    private function getFiles()
+    private function getFiles(): void
     {
         $this->files = $_FILES;
     }
@@ -76,7 +76,7 @@ class Request
      * @param string $definedRoute
      * @return void
      */
-    private function getParams(string $definedRoute)
+    private function getParams(string $definedRoute): void
     {
         $uri = $_SERVER['REQUEST_URI'] ?? '';
         $uri = explode('?', $uri, 2)[0];
@@ -96,7 +96,7 @@ class Request
      * Get the query parameters
      * @return void
      */
-    private function getQueries()
+    private function getQueries(): void
     {
         $uri   = $_SERVER['REQUEST_URI'] ?? '';
         $parts = explode('?', $uri, 2);
@@ -111,7 +111,7 @@ class Request
 
         foreach ($queryList as $queryItem) {
             if (strpos($queryItem, '=') !== false) {
-                list($queryName, $queryValue) = explode('=', $queryItem, 2);
+                [$queryName, $queryValue]     = explode('=', $queryItem, 2);
                 $this->queries[$queryName]    = $queryValue;
             }
         }
